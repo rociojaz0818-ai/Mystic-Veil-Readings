@@ -42,12 +42,23 @@
       --line: rgba(238, 234, 232, 0.22);
     }
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--navy);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+  body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  overflow-x: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(8, 8, 33, 0.35),
+      rgba(8, 8, 33, 0.35)
+    ),
+    url("fondo-constelaciones.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+}
 
     a {
       text-decoration: none;
