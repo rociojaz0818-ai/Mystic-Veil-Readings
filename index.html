@@ -472,44 +472,42 @@
        RESEÑAS
     ========================================= */
 
-    .reviews {
-      max-width: 1000px;
+   .reviews-gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
 
-      margin: auto;
+.review-image {
+  background: rgba(238, 234, 232, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
 
-      display: grid;
+.review-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(270px, 1fr));
+@media (max-width: 900px) {
+  .reviews-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-      gap: 22px;
-    }
-
-    .review {
-      padding: 28px;
-
-      border-radius: 20px;
-
-      background:
-        rgba(238,234,232,0.06);
-
-      border: 1px solid var(--line);
-    }
-
-    .review-stars {
-      margin-bottom: 15px;
-
-      letter-spacing: 3px;
-    }
-
-    .review p {
-      color: var(--cream-dark);
-
-      line-height: 1.7;
-
-      font-size: 15px;
-    }
-
+@media (max-width: 600px) {
+  .reviews-gallery {
+    grid-template-columns: 1fr;
+  }
+}
     /* =========================================
        PAGOS
     ========================================= */
