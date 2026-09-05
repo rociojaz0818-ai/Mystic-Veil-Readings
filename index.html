@@ -86,10 +86,22 @@
       opacity: 0.18;
     }
 @media (max-width: 600px) {
+  body {
+    background-image:
+      linear-gradient(
+        rgba(8, 8, 33, 0.35),
+        rgba(8, 8, 33, 0.35)
+      ),
+      url("ChatGPT Image 4 sept 2026, 23_37_43.png");
+
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+    background-repeat: repeat-y;
+  }
+
   body::before {
-    background-size: 65px 65px, 110px 110px;
-    background-position: 10px 20px, 45px 70px;
-    opacity: 0.20;
+    display: none;
   }
 }
     /* =========================================
