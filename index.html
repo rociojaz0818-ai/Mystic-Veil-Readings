@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Mystic Veil Readings</title>
+
+  <meta
+    name="description"
+    content="Mystic Veil Readings — lecturas de tarot, cursos y servicios místicos."
+  >
+
+  <style>
+
+    /* =========================================
+       MYSTIC VEIL READINGS
+       ESTILO GENERAL
+    ========================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --navy: #080821;
+      --navy-light: #111136;
+      --cream: #eeeae8;
+      --cream-dark: #d8d2d6;
+      --lavender: #c9c2d8;
+      --text: #eeeaf2;
+      --muted: #aaa4b5;
+      --line: rgba(238, 234, 232, 0.22);
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--navy);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================================
+       FONDO ESTRELLADO
+    ========================================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.65) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px);
+
+      background-size: 100px 100px, 170px 170px;
+      background-position: 20px 30px, 80px 100px;
+
+      opacity: 0.18;
+    }
+
+    /* =========================================
+       NAVEGACIÓN
+    ========================================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 25px;
+
+      padding: 18px 20px;
+
+      background: rgba(8, 8, 33, 0.94);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      font-size: 14px;
+      color: var(--cream-dark);
+
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      min-height: 90vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 90px 20px;
+
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .stars {
+      font-size: 28px;
+      letter-spacing: 15px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 9vw, 90px);
+      font-weight: normal;
+      letter-spacing: 3px;
+      line-height: 1;
+    }
+
+    .hero h2 {
+      margin-top: 25px;
+
+      font-size: clamp(20px, 4vw, 32px);
+      font-weight: normal;
+
+      color: var(--lavender);
+    }
+
+    .hero p {
+      max-width: 650px;
+
+      margin: 25px auto;
+
+      line-height: 1.8;
+
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    .hero-button {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      padding: 14px 30px;
+
+      border-radius: 40px;
+
+      background: var(--cream);
+      color: var(--navy);
+
+      font-size: 15px;
+
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-4px);
+      background: white;
+    }
+
+    /* =========================================
+       SECCIONES
+    ========================================= */
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+
+      max-width: 750px;
+
+      margin: 0 auto 50px;
+    }
+
+    .section-title .symbol {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(34px, 6vw, 52px);
+      font-weight: normal;
+
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* =========================================
+       TARJETAS
+    ========================================= */
+
+    .catalog {
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 25px;
+    }
+
+    .card {
+      padding: 30px 26px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(238,234,232,0.10),
+          rgba(255,255,255,0.025)
+        );
+
+      border: 1px solid var(--line);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.28);
+
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(238,234,232,0.45);
+    }
+
+    .card-symbol {
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 25px;
+      font-weight: normal;
+
+      margin-bottom: 18px;
+    }
+
+    .card-description {
+      color: var(--cream-dark);
+
+      line-height: 1.75;
+
+      font-size: 15px;
+    }
+
+    .questions {
+      list-style: none;
+
+      margin-top: 20px;
+    }
+
+    .questions li {
+      color: var(--muted);
+
+      line-height: 1.6;
+
+      margin: 8px 0;
+    }
+
+    .questions li::before {
+      content: "✦ ";
+
+      color: var(--cream);
+    }
+
+    .price {
+      margin-top: 25px;
+
+      font-size: 24px;
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+    .usd {
+      display: block;
+
+      margin-top: 5px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      font-weight: normal;
+    }
+
+    .button {
+      display: inline-block;
+
+      margin-top: 22px;
+
+      padding: 11px 23px;
+
+      border-radius: 30px;
+
+      background: var(--cream);
+
+      color: var(--navy);
+
+      font-size: 14px;
+
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: white;
+
+      transform: translateY(-2px);
+    }
+
+    /* =========================================
+       CURSOS
+    ========================================= */
+
+    .courses {
+      max-width: 950px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(290px, 1fr));
+
+      gap: 30px;
+    }
+
+    .course {
+      text-align: center;
+
+      padding: 45px 30px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(238,234,232,0.12),
+          rgba(255,255,255,0.025)
+        );
+
+      border: 1px solid var(--line);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .course-symbol {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .course h3 {
+      font-size: 30px;
+
+      font-weight: normal;
+
+      margin-bottom: 15px;
+    }
+
+    .course p {
+      color: var(--muted);
+
+      line-height: 1.7;
+    }
+
+    .old-price {
+      margin-top: 25px;
+
+      color: #99939e;
+
+      text-decoration: line-through;
+
+      font-size: 18px;
+    }
+
+    .new-price {
+      margin-top: 6px;
+
+      font-size: 34px;
+
+      font-weight: bold;
+
+      color: white;
+    }
+
+    .discount {
+      display: inline-block;
+
+      margin-top: 12px;
+
+      padding: 5px 12px;
+
+      border-radius: 20px;
+
+      background: var(--cream);
+
+      color: var(--navy);
+
+      font-size: 12px;
+    }
+
+    /* =========================================
+       VELAS
+    ========================================= */
+
+    .candle-card {
+      text-align: center;
+    }
+
+    .candle-icon {
+      font-size: 45px;
+
+      margin-bottom: 15px;
+    }
+
+    /* =========================================
+       RESEÑAS
+    ========================================= */
+
+    .reviews {
+      max-width: 1000px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+      gap: 22px;
+    }
+
+    .review {
+      padding: 28px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(238,234,232,0.06);
+
+      border: 1px solid var(--line);
+    }
+
+    .review-stars {
+      margin-bottom: 15px;
+
+      letter-spacing: 3px;
+    }
+
+    .review p {
+      color: var(--cream-dark);
+
+      line-height: 1.7;
+
+      font-size: 15px;
+    }
+
+    /* =========================================
+       PAGOS
+    ========================================= */
+
+    .payments {
+      max-width: 800px;
+
+      margin: auto;
+
+      text-align: center;
+
+      padding: 40px;
+
+      border-radius: 25px;
+
+      background:
+        rgba(238,234,232,0.06);
+
+      border: 1px solid var(--line);
+    }
+
+    .payment-list {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-top: 25px;
+    }
+
+    .payment {
+      padding: 12px 20px;
+
+      border-radius: 30px;
+
+      background: var(--cream);
+
+      color: var(--navy);
+
+      font-size: 14px;
+    }
+
+    /* =========================================
+       CONTACTO
+    ========================================= */
+
+    .contact {
+      text-align: center;
+
+      max-width: 750px;
+
+      margin: auto;
+    }
+
+    .contact p {
+      color: var(--muted);
+
+      line-height: 1.8;
+
+      margin-bottom: 25px;
+    }
+
+    .contact-buttons {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      text-align: center;
+
+      padding: 45px 20px;
+
+      border-top: 1px solid var(--line);
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    footer .footer-title {
+      font-size: 20px;
+
+      color: var(--cream);
+
+      margin-bottom: 10px;
+    }
+
+    /* =========================================
+       CELULAR
+    ========================================= */
+
+    @media (max-width: 600px) {
+
+      nav {
+        gap: 14px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      section {
+        padding: 65px 16px;
+      }
+
+      .card {
+        padding: 25px 22px;
+      }
+
+      .payments {
+        padding: 30px 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVEGACIÓN
+========================================= -->
+
+<nav>
+
+  <a href="#inicio">Inicio</a>
+
+  <a href="#lecturas">Lecturas</a>
+
+  <a href="#cursos">Cursos</a>
+
+  <a href="#velas">Velas</a>
+
+  <a href="#resenas">Reseñas</a>
+
+  <a href="#contacto">Contacto</a>
+
+</nav>
+
+
+<!-- =========================================
+     PORTADA
+========================================= -->
+
+<header class="hero" id="inicio">
+
+  <div class="hero-content">
+
+    <div class="stars">
+      ✦ ✧ ★ ✧ ✦
+    </div>
+
+    <h1>
+      Mystic Veil
+    </h1>
+
+    <h2>
+      Readings
+    </h2>
+
+    <p>
+      Un espacio para mirar más allá del velo.
+      Explorá nuestras lecturas de tarot, cursos
+      y servicios místicos.
+    </p>
+
+    <a
+      href="#lecturas"
+      class="hero-button"
+    >
+      Explorar catálogo
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================
+     LECTURAS
+========================================= -->
+
+<section id="lecturas">
+
+  <div class="section-title">
+
+    <div class="symbol">
+      🔮
+    </div>
+
+    <h2>
+      Lecturas de Tarot
+    </h2>
+
+    <p>
+      Elegí la lectura que mejor se adapte a aquello
+      que querés consultar.
+    </p>
+
+  </div>
+
+
+  <div class="catalog">
+
+
+    <!-- FUTURO AMOR -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♡
+      </div>
+
+      <h3>
+        Lectura Futuro Amor
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Cómo será mi futuro amor?
+        </li>
+
+        <li>
+          ¿Cuándo llegará?
+        </li>
+
+        <li>
+          ¿Cuáles son sus características?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20Futuro%20Amor."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- CRUSH -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♡
+      </div>
+
+      <h3>
+        Lectura de Crush
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Hay posibilidades en el futuro?
+        </li>
+
+        <li>
+          ¿Hay algún tipo de interés?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Crush."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- SENTIMIENTOS -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♡
+      </div>
+
+      <h3>
+        Lectura de Sentimientos
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Qué sentimientos tiene por mí?
+        </li>
+
+        <li>
+          ¿Hay alguna herida a sanar por parte de ambos?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Sentimientos."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- VÍNCULO -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♧
+      </div>
+
+      <h3>
+        Lectura de Vínculo
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Qué intenciones tiene este nuevo vínculo?
+        </li>
+
+        <li>
+          ¿Hacia dónde va encaminado?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Vínculo."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- EX VÍNCULO -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♡
+      </div>
+
+      <h3>
+        Lectura Ex Vínculo
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Va a volver?
+        </li>
+
+        <li>
+          ¿Qué siente?
+        </li>
+
+        <li>
+          ¿Tenemos de nuevo posibilidad en un futuro?
+        </li>
+
+        <li>
+          ¿En qué punto se encuentra nuestra relación?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $7.000
+      </div>
+
+      <span class="usd">
+        USD $9
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20Ex%20Vínculo."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- REVISIÓN VINCULAR -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♧
+      </div>
+
+      <h3>
+        Lectura Revisión Vincular
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Estamos próximos a terminar?
+        </li>
+
+        <li>
+          ¿Me está ocultando algo?
+        </li>
+
+        <li>
+          ¿Qué siente por mí realmente?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20Revisión%20Vincular."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- AMOR GENERAL -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♡
+      </div>
+
+      <h3>
+        Lectura de Amor General
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Cuáles son mis energías en el amor?
+        </li>
+
+        <li>
+          ¿Cuáles son mis bloqueos y fortalezas?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $5.500
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Amor%20General."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- ESTUDIOS -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ✧
+      </div>
+
+      <h3>
+        Lectura de Estudios
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Estoy tomando el camino correcto?
+        </li>
+
+        <li>
+          ¿Hacia dónde debería ir?
+        </li>
+
+        <li>
+          ¿Mi carrera es para mí?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $5.500
+      </div>
+
+      <span class="usd">
+        USD $5
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Estudios."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- LABORAL -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ✦
+      </div>
+
+      <h3>
+        Lectura Laboral
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Estoy tomando el camino correcto?
+        </li>
+
+        <li>
+          ¿Hacia dónde debería ir?
+        </li>
+
+        <li>
+          ¿Este trabajo es para mí?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $6
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20Laboral."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- GENERAL SIMPLE -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ✧
+      </div>
+
+      <h3>
+        Lectura General Simple
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          Máximo 3 preguntas extendidas a elección
+        </li>
+
+        <li>
+          O 5 preguntas de sí/no
+        </li>
+
+        <li>
+          Área a elección
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $6.000
+      </div>
+
+      <span class="usd">
+        USD $7
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20General%20Simple."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- TERCEROS -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ♧
+      </div>
+
+      <h3>
+        Lectura de Terceros
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          ¿Hay terceros mal intencionados?
+        </li>
+
+        <li>
+          ¿Estos terceros son personas cercanas?
+        </li>
+
+        <li>
+          ¿Es correspondido?
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $7.500
+      </div>
+
+      <span class="usd">
+        USD $8
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Lectura%20de%20Terceros."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+
+    <!-- SESIÓN DE PREGUNTAS -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ✦
+      </div>
+
+      <h3>
+        Sesión de Preguntas
+      </h3>
+
+      <p class="card-description">
+        Podés preguntar sobre:
+      </p>
+
+      <ul class="questions">
+
+        <li>
+          Ex vínculos
+        </li>
+
+        <li>
+          Vínculos actuales
+        </li>
+
+        <li>
+          Trabajo / estudio
+        </li>
+
+        <li>
+          Familia / salud
+        </li>
+
+        <li>
+          ¡Hasta 10 preguntas!
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $15.000
+      </div>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Sesión%20de%20Preguntas."
+        target="_blank"
+      >
+        Solicitar sesión
+      </a>
+
+    </article>
+
+
+    <!-- LECTURA SIMPLE -->
+
+    <article class="card">
+
+      <div class="card-symbol">
+        ✧
+      </div>
+
+      <h3>
+        Lectura Simple
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          1 pregunta extendida — $3.000
+        </li>
+
+        <li>
+          1 pregunta sí/no — $2.500
+        </li>
+
+        <li>
+          1 pregunta + consejo — $4.000
+        </li>
+
+      </ul>
+
+      <div class="price">
+        Desde $2.500
+      </div>
+
+      <span class="usd">
+        USD $2 / $3 / $4
+      </span>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20una%20Lectura%20Simple."
+        target="_blank"
+      >
+        Solicitar lectura
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CURSOS
+========================================= -->
+
+<section id="cursos">
+
+  <div class="section-title">
+
+    <div class="symbol">
+      🃏
+    </div>
+
+    <h2>
+      Curso de Tarot
+    </h2>
+
+    <p>
+      Aprendé y profundizá tus conocimientos en tarot
+      con nuestras opciones de formación.
+    </p>
+
+  </div>
+
+
+  <div class="courses">
+
+
+    <!-- BÁSICO -->
+
+    <article class="course">
+
+      <div class="course-symbol">
+        🌙
+      </div>
+
+      <h3>
+        Curso de Tarot Básico
+      </h3>
+
+      <p>
+        Una opción para comenzar tu camino
+        en el aprendizaje del tarot.
+      </p>
+
+      <div class="old-price">
+        $15.000
+      </div>
+
+      <div class="new-price">
+        $10.000
+      </div>
+
+      <span class="discount">
+        PRECIO PROMOCIONAL
+      </span>
+
+      <br>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20el%20Curso%20de%20Tarot%20Básico."
+        target="_blank"
+      >
+        Consultar curso
+      </a>
+
+    </article>
+
+
+    <!-- AVANZADO -->
+
+    <article class="course">
+
+      <div class="course-symbol">
+        🔮
+      </div>
+
+      <h3>
+        Curso de Tarot Avanzado
+      </h3>
+
+      <p>
+        Para profundizar tus conocimientos
+        y continuar avanzando en tarot.
+      </p>
+
+      <div class="old-price">
+        $22.000
+      </div>
+
+      <div class="new-price">
+        $17.000
+      </div>
+
+      <span class="discount">
+        PRECIO PROMOCIONAL
+      </span>
+
+      <br>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20el%20Curso%20de%20Tarot%20Avanzado."
+        target="_blank"
+      >
+        Consultar curso
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     VELAS
+========================================= -->
+
+<section id="velas">
+
+  <div class="section-title">
+
+    <div class="symbol">
+      🕯️
+    </div>
+
+    <h2>
+      Velas
+    </h2>
+
+    <p>
+      Trabajos y velas disponibles dentro del catálogo.
+    </p>
+
+  </div>
+
+
+  <div class="catalog">
+
+
+    <!-- ABUNDANCIA -->
+
+    <article class="card candle-card">
+
+      <div class="candle-icon">
+        🕯️
+      </div>
+
+      <h3>
+        Vela para la Abundancia
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          Abrecaminos
+        </li>
+
+        <li>
+          Dinero
+        </li>
+
+        <li>
+          Oportunidades
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $8.000
+      </div>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Vela%20para%20la%20Abundancia."
+        target="_blank"
+      >
+        Consultar
+      </a>
+
+    </article>
+
+
+    <!-- AMOR PROPIO -->
+
+    <article class="card candle-card">
+
+      <div class="candle-icon">
+        🕯️
+      </div>
+
+      <h3>
+        Vela para el Amor Propio
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          Autoendulzamiento
+        </li>
+
+        <li>
+          Amor propio
+        </li>
+
+        <li>
+          Magnetismo
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $8.000
+      </div>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Vela%20para%20el%20Amor%20Propio."
+        target="_blank"
+      >
+        Consultar
+      </a>
+
+    </article>
+
+
+    <!-- SANACIÓN -->
+
+    <article class="card candle-card">
+
+      <div class="candle-icon">
+        🕯️
+      </div>
+
+      <h3>
+        Vela Sanación Mental
+      </h3>
+
+      <ul class="questions">
+
+        <li>
+          Calma
+        </li>
+
+        <li>
+          Comunicación
+        </li>
+
+        <li>
+          Sanación mental
+        </li>
+
+      </ul>
+
+      <div class="price">
+        $8.000
+      </div>
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20consultar%20por%20la%20Vela%20de%20Sanación%20Mental."
+        target="_blank"
+      >
+        Consultar
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     RESEÑAS
+========================================= -->
+
+<section id="resenas">
+
+  <div class="section-title">
+
+    <div class="symbol">
+      💌
+    </div>
+
+    <h2>
+      Reseñas positivas
+    </h2>
+
+    <p>
+      Algunas palabras de quienes confiaron
+      en Mystic Veil Readings.
+    </p>
+
+  </div>
+
+
+  <div class="reviews">
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Muchas gracias bella, me encantó la lectura.”
+      </p>
+
+    </article>
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Gracias por la respuesta, fueron ciertas.”
+      </p>
+
+    </article>
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Impecable lectura!!!!”
+      </p>
+
+    </article>
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Me diste todo lo que necesitaba saber,
+        siento que le atinaste a todo.”
+      </p>
+
+    </article>
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Ahora sí, gracias por las lecturas,
+        por aclararme todas mis dudas.”
+      </p>
+
+    </article>
+
+
+    <article class="review">
+
+      <div class="review-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        “Le re pegaste con la lectura,
+        sos increíble.”
+      </p>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     PAGOS
+========================================= -->
+
+<section>
+
+  <div class="section-title">
+
+    <div class="symbol">
+      ✦
+    </div>
+
+    <h2>
+      Métodos de pago
+    </h2>
+
+    <p>
+      Podés abonar tu lectura, curso o servicio
+      mediante cualquiera de las siguientes opciones.
+    </p>
+
+  </div>
+
+
+  <div class="payments">
+
+    <div class="payment-list">
+
+      <div class="payment">
+        💳 Transferencia
+      </div>
+
+      <div class="payment">
+        📱 Mercado Pago
+      </div>
+
+      <div class="payment">
+        💵 Efectivo
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACTO
+========================================= -->
+
+<section id="contacto">
+
+  <div class="contact">
+
+    <div class="section-title">
+
+      <div class="symbol">
+        🌙
+      </div>
+
+      <h2>
+        ¿Querés realizar una consulta?
+      </h2>
+
+      <p>
+        Contactame para reservar tu lectura,
+        consultar por un curso o conocer más
+        sobre los servicios disponibles.
+      </p>
+
+    </div>
+
+
+    <div class="contact-buttons">
+
+      <a
+        class="button"
+        href="https://wa.me/5493826405740?text=Hola%20Mystic%20Veil%20Readings%2C%20quiero%20hacer%20una%20consulta."
+        target="_blank"
+      >
+        💬 WhatsApp
+      </a>
+
+
+      <a
+        class="button"
+        href="https://instagram.com/mysticveil.readings"
+        target="_blank"
+      >
+        📸 Instagram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="footer-title">
+    ✦ Mystic Veil Readings ✦
+  </div>
+
+  <p>
+    Lecturas de tarot · Cursos · Servicios místicos
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 Mystic Veil Readings
+  </p>
+
+</footer>
+
+
+</body>
+
+</html>
